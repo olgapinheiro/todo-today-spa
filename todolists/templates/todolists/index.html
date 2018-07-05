@@ -1,0 +1,9 @@
+{% if all_lists %}
+    <ul>
+    {% for todolist in all_lists %}
+        <li><a href="/todolists/{{ todolist.id }}/">{{ todolist.list_title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No TODO lists are available.</p>
+{% endif %}
