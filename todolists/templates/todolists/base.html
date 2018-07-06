@@ -12,6 +12,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet' type="text/css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/todolists.css' %}">
+    <script src="{% static 'scripts/todolists.js' %}"></script>
+    <script>
+        var complete_task = "{% url 'todolists:complete_task' %}"
+    </script>
 </head>
 
 <body>

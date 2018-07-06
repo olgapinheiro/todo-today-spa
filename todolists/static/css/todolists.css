@@ -1,3 +1,10 @@
+:root {
+    --main-line-color: rgb(43, 226, 141);
+    --header-background: rgba(255, 252, 240, 0.959);
+    --todolists-container-background: rgb(255, 255, 255);/* rgba(248, 255, 240, 0.692);*/
+    --todolists-background: rgba(255, 252, 240, 0.959);
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -15,7 +22,7 @@ body{
 
 .header-main{
     position: relative;
-    background-color: rgba(255, 252, 240, 0.959);
+    background-color: var(--header-background);
     overflow: hidden;
 }
 
@@ -36,7 +43,7 @@ body{
     clear:both;
     display:block;
     width: 50%;               
-    background-color: rgb(43, 226, 141);
+    background-color: var(--main-line-color);
     height: 1px;
 }
 
@@ -87,6 +94,7 @@ p.header-main-content__text{
     width: 100%;
     height: 80vh;
     justify-content: center;
+    background-color: var(--todolists-container-background);
 }
 
 .flex-column{
@@ -113,6 +121,8 @@ p.header-main-content__text{
     margin: 80px 20px 20px 20px;
     height: 80%;
     width: 17vw;
+    min-width: 194px;
+    background-color: var(--todolists-background);
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -137,13 +147,52 @@ p.header-main-content__text{
     border-radius: 50%;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
-    background-color: white;
+    background-color: var(--todolists-background);
 }
-
 
 
 .btn-new_list-container{
     margin: 80px 20px 20px 20px;
     height: 80%;
     width: 17vw;
+    background-color: var(--todolists-container-background);
+}
+
+.dot{
+    height: 0.5rem;
+    width: 0.5rem;
+    /*background: rgb(43, 226, 141);*/
+    border-radius: 50%;
+    border: 2px solid var(--main-line-color);
+    display: inline-block;
+}
+
+.checked.dot{
+    background: var(--main-line-color);
+}
+
+.list_item{
+    cursor: pointer;
+    transition: 0.2s;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.list_item:hover{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.task.checked{
+    text-decoration: line-through;
+    text-decoration-color: var(--main-line-color);
+    color: rgba(0,0,0,0.2);
+}
+
+input {
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    width: 75%;
+    padding: 10px;
+    background: transparent;
 }

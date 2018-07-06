@@ -6,19 +6,21 @@
 
 <div class="card-container">
     <form>
+    {% csrf_token%}
         {% for task in todolist.task_set.all %}
-        <form action="{% url 'todolists:complete_task' task.id %}" method="POST">
-            {% csrf_token%}
-            <input type="checkbox" name="task" id="task{{ forloop.counter }}" value="{{ task.id }}" />
-            <label for="task{{ forloop.counter }}">{{ task.task_text }}</label>
+            <div class="list_item" id="task-{{ task.id }}" onclick="check_task(this.id)">
+                <span class="dot" name="task-{{ task.id }}"></span>
+                <!--<input type="checkbox" name="task" id="task{{ forloop.counter }}" value="{{ task.id }}" />
+                <label for="task{{ forloop.counter }}">{{ task.task_text }}</label>-->
+                <span class="task" id="{{ task.id }}" name="task-{{ task.id }}">{{ task.task_text }}</span>
+            </div>
             <br />
-        </form>
 
         {% endfor %}
 
-        <input type="checkbox" name="task" id="newTask" disabled="True" value="False" />
-        <label for="newTask">
+        <div class="list_item">
+            <span class="dot" ></span>
             <input type="text" placeholder="new task" />
-        </label>
+        </div>
     </form>
 </div>
