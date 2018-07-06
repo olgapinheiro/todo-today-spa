@@ -1,3 +1,6 @@
+{% extends 'todolists/base.html' %}
+
+{% block content %}
 {% if all_lists %}
     <ul>
     {% for todolist in all_lists %}
@@ -8,3 +11,4 @@
 {% else %}
     <p>No TODO lists are available.</p>
 {% endif %}
+{% endblock %}

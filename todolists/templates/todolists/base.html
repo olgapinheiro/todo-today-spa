@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Advent Pro' rel='stylesheet' type="text/css">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>To do, today</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet' type="text/css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/todolists.css' %}">
+</head>
+
+<body>
+    <header id="top" class="header-main">
+        <div class="header-main--inside d-flex flex-column">
+            <div class="header-main--social">
+                Sin in/ Sign up
+            </div>
+
+
+            <div class="header-main-content container align-self-center text-center">
+                <h1 class="header-main-content__title">
+                    TO DO<br/>
+                    TODAY
+                </h1>
+                <hr class="header-main--lines align-self-start" />
+                <p class="header-main-content__text">
+                    don't wait for tomorrow<br/>
+                    to become productive
+                </p>
+            </div>
+
+        </div>
+
+    </header>
+
+    <div class="container">
+        {% block content %} {% endblock %}
+    </div>
+
+</body>
+
+</html>
