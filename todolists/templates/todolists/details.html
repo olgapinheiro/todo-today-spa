@@ -1,20 +1,24 @@
 <!-- details of a TODO list -->
 
-<h1> {{ todolist.list_title}} </h1>
+<div class="card-title">
+    <h1> {{ todolist.list_title}} </h1>
+</div>
 
-<form>
-    {% for task in todolist.task_set.all %}
-    <form action="{% url 'todolists:complete_task' task.id %}" method="POST">
-        {% csrf_token%}
-        <input type="checkbox" name="task" id="task{{ forloop.counter }}" value="{{ task.id }}"/>
-        <label for="task{{ forloop.counter }}">{{ task.task_text }}</label>
-        <br />
+<div class="card-container">
+    <form>
+        {% for task in todolist.task_set.all %}
+        <form action="{% url 'todolists:complete_task' task.id %}" method="POST">
+            {% csrf_token%}
+            <input type="checkbox" name="task" id="task{{ forloop.counter }}" value="{{ task.id }}" />
+            <label for="task{{ forloop.counter }}">{{ task.task_text }}</label>
+            <br />
+        </form>
+
+        {% endfor %}
+
+        <input type="checkbox" name="task" id="newTask" disabled="True" value="False" />
+        <label for="newTask">
+            <input type="text" placeholder="new task" />
+        </label>
     </form>
-        
-    {% endfor %}
-
-    <input type="checkbox" name="task" id="newTask" disabled="True" value="False"/>
-    <label for="newTask">
-        <input type="text" placeholder="new task" />
-    </label>
-</form>
+</div>

@@ -24,13 +24,13 @@
 
             <div class="header-main-content container align-self-center text-center">
                 <h1 class="header-main-content__title">
-                    TO DO<br/>
-                    TODAY
+                    TO DO
+                    <br/> TODAY
                 </h1>
                 <hr class="header-main--lines align-self-start" />
                 <p class="header-main-content__text">
-                    don't wait for tomorrow<br/>
-                    to become productive
+                    don't wait for tomorrow
+                    <br/> to become productive
                 </p>
             </div>
 
@@ -38,8 +38,23 @@
 
     </header>
 
-    <div class="container">
-        {% block content %} {% endblock %}
+    <div class="todolists-container d-flex flex-row">
+        {% if all_lists %}
+            {% for todolist in all_lists %}
+            <div class="card">
+                <!--<li><a href="{% url 'todolists:details' todolist.id %}">{{ todolist.list_title }}</a></li>-->
+                {% include "todolists/details.html" with todolist=todolist %}
+            </div>
+            {% endfor %}
+            <div class="btn-new_list-container d-flex flex-column">
+                <div class="align-self-center" >
+                        <button class="btn-new_list" name="btn-new_list"> New TODO List </button>
+                </div>
+            </div>
+        {% else %}
+            <p>Start today!</p>
+            <p>Create your first TODO list.</p>
+        {% endif %}
     </div>
 
 </body>

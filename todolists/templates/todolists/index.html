@@ -2,13 +2,15 @@
 
 {% block content %}
 {% if all_lists %}
-    <ul>
     {% for todolist in all_lists %}
+    <div class="card">
         <!--<li><a href="{% url 'todolists:details' todolist.id %}">{{ todolist.list_title }}</a></li>-->
         {% include "todolists/details.html" with todolist=todolist %}
+    </div>
+        
     {% endfor %}
-    </ul>
 {% else %}
-    <p>No TODO lists are available.</p>
+    <p>Start today!</p>
+    <p>Create your first TODO list.</p>
 {% endif %}
 {% endblock %}

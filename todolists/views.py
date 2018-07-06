@@ -10,7 +10,7 @@ def index(request):
     context = {
         'all_lists' : all_lists,
     }
-    return render(request, 'todolists/index.html', context)
+    return render(request, 'todolists/base.html', context)
 
 def details(request, todolist_id):
     # todolist = TodoList.objects.get(pk=todolist_id)
