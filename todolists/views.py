@@ -20,9 +20,11 @@ def details(request, todolist_id):
 
 def complete_task(request, task_id):
     task = get_object_or_404(Task, pk=task_id)
-    task.is_completed = False if task.isCompleted else True
+    task.is_completed = False if task.is_completed else True
     task.save()
-    print("task saved: "+task)
+    print("task saved: "+task.task_text)
+    print("task is_completed: "+ str(task.is_completed))
+    return index(request)
 
 def completed_this_day(request, chosen_date):
     """Returns the tasks related to the logged user that were completed in the chosen date"""

@@ -13,9 +13,7 @@
     <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet' type="text/css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/todolists.css' %}">
     <script src="{% static 'scripts/todolists.js' %}"></script>
-    <script>
-        var complete_task = "{% url 'todolists:complete_task' %}"
-    </script>
+
 </head>
 
 <body>
@@ -44,23 +42,22 @@
 
     <div class="todolists-container d-flex flex-row">
         {% if all_lists %}
-            {% for todolist in all_lists %}
-            <div class="card">
-                <!--<li><a href="{% url 'todolists:details' todolist.id %}">{{ todolist.list_title }}</a></li>-->
-                {% include "todolists/details.html" with todolist=todolist %}
+        {% for todolist in all_lists %}
+        <div class="card">
+            <!--<li><a href="{% url 'todolists:details' todolist.id %}">{{ todolist.list_title }}</a></li>-->
+            {% include "todolists/details.html" with todolist=todolist %}
+        </div>
+        {% endfor %}
+        <div class="btn-new_list-container d-flex flex-column">
+            <div class="align-self-center">
+                <button class="btn-new_list" name="btn-new_list"> New TODO List </button>
             </div>
-            {% endfor %}
-            <div class="btn-new_list-container d-flex flex-column">
-                <div class="align-self-center" >
-                        <button class="btn-new_list" name="btn-new_list"> New TODO List </button>
-                </div>
-            </div>
+        </div>
         {% else %}
             <p>Start today!</p>
             <p>Create your first TODO list.</p>
         {% endif %}
     </div>
-
 </body>
 
 </html>
