@@ -1,4 +1,5 @@
 {% load static %}
+{% load render_bundle from webpack_loader %}
 <!DOCTYPE html>
 <html>
 
@@ -17,7 +18,13 @@
 </head>
 
 <body>
+        <div id="App1"></div>
+        {% render_bundle 'vendors' %}
+        {% render_bundle 'App1' %}
     <header id="top" class="header-main">
+            <div id="App1"></div>
+            {% render_bundle 'vendors' %}
+            {% render_bundle 'App1' %}
         <div class="header-main--inside d-flex flex-column">
             <div class="header-main--social">
                 Sin in/ Sign up
