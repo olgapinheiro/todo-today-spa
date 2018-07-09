@@ -4,7 +4,11 @@ export default class Title extends React.Component {
     render() {
         return (
             <div className="Title">
-                <p>Title</p>
+                <h1>Title</h1>
+                <p>
+                    don't wait for tomorrow <br/>
+                    to become productive
+                </p>
             </div>
         )
     }
