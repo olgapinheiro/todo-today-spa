@@ -71,17 +71,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
-
-# ReactJS integration
-# https://github.com/mbrochh/django-reactjs-boilerplate/tree/step4_use_the_bundle
-
-WEBPACK_LOADER = {
-    'DEFAULT': {
-        'BUNDLE_DIR_NAME': 'bundles/local/',  # end with slash
-        'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats-local.json'),
-    }
-}
-
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
@@ -131,3 +120,16 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'todolists/static'),
+]
+
+# ReactJS integration
+# https://github.com/mbrochh/django-reactjs-boilerplate/tree/step4_use_the_bundle
+
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'bundles/local/',  # end with slash
+        'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats-local.json'),
+    }
+}

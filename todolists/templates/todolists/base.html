@@ -14,7 +14,7 @@
     <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet' type="text/css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/todolists.css' %}">
     <script src="{% static 'scripts/todolists.js' %}"></script>
-
+    <script src="bundle.js"></script>
 </head>
 
 <body>
@@ -22,9 +22,6 @@
         {% render_bundle 'vendors' %}
         {% render_bundle 'App1' %}
     <header id="top" class="header-main">
-            <div id="App1"></div>
-            {% render_bundle 'vendors' %}
-            {% render_bundle 'App1' %}
         <div class="header-main--inside d-flex flex-column">
             <div class="header-main--social">
                 Sin in/ Sign up
