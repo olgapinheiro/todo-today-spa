@@ -1,4 +1,9 @@
 <!-- details of a TODO list -->
+<script>
+    let todolist_id = {{ todolist.id }};
+    console.log("Initializing todolistId: "+ todolistId);
+</script>
+
 
 <div class="card-title">
     <h1> {{ todolist.list_title}} </h1>
@@ -8,7 +13,7 @@
     <form>
     {% csrf_token%}
         {% for task in todolist.task_set.all %}
-            <div class="list_item" id="task-{{ task.id }}" onclick="check_task(this.id)">
+            <div class="list_item" id="task-{{ task.id }}" data-taskid="{{ task.id }}" data-listid="{{ todolist.id }}" onclick="check_task(this.id)">
                 <span class="dot" name="task-{{ task.id }}"></span>
                 <!--<input type="checkbox" name="task" id="task{{ forloop.counter }}" value="{{ task.id }}" />
                 <label for="task{{ forloop.counter }}">{{ task.task_text }}</label>-->
@@ -20,7 +25,7 @@
 
         <div class="list_item">
             <span class="dot" ></span>
-            <input type="text" placeholder="new task" />
+            <input type="text" placeholder="new task" class="new_task"/>
         </div>
     </form>
 </div>

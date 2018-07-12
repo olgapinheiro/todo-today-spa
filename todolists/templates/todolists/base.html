@@ -1,5 +1,4 @@
-{% load static %}
-{% load render_bundle from webpack_loader %}
+{% load static %} {% load render_bundle from webpack_loader %}
 <!DOCTYPE html>
 <html>
 
@@ -13,14 +12,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet' type="text/css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/todolists.css' %}">
-    <script src="{% static 'scripts/todolists.js' %}"></script>
-    <script src="bundle.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 </head>
 
 <body>
-        <div id="App1"></div>
+    <!--<div id="App1"></div>
         {% render_bundle 'vendors' %}
-        {% render_bundle 'App1' %}
+        {% render_bundle 'App1' %}-->
+        
     <header id="top" class="header-main">
         <div class="header-main--inside d-flex flex-column">
             <div class="header-main--social">
@@ -45,8 +45,7 @@
     </header>
 
     <div class="todolists-container d-flex flex-row">
-        {% if all_lists %}
-        {% for todolist in all_lists %}
+        {% if all_lists %} {% for todolist in all_lists %}
         <div class="card">
             <!--<li><a href="{% url 'todolists:details' todolist.id %}">{{ todolist.list_title }}</a></li>-->
             {% include "todolists/details.html" with todolist=todolist %}
@@ -58,10 +57,15 @@
             </div>
         </div>
         {% else %}
-            <p>Start today!</p>
-            <p>Create your first TODO list.</p>
+        <p>Start today!</p>
+        <p>Create your first TODO list.</p>
         {% endif %}
     </div>
+
+    <!-- SCRIPTS -->
+    <script src="{% static 'scripts/todolists.js' %}"></script>
+    <script src="bundle.js"></script>
+
 </body>
 
 </html>

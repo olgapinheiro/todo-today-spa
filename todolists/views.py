@@ -38,3 +38,11 @@ def completed_this_day(request, chosen_date):
 
 def test(request):
     return render(request, 'todolists/test.html')
+
+def add_task(request):
+    """Adds a new task to the current todo list"""
+    print("enter add_task")
+    todo_list_id = request.POST['todolist_id']
+    #task_text = request.POST['task_text']
+    print("todolist id:",todo_list_id)
+    #todolist = get_object_or_404(TodoList, pk=todolist_id)
